@@ -40,7 +40,7 @@ const Home = () => {
     }
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:4000/create-agent", {
+      const res = await fetch("https://agents-task-be.onrender.com/create-agent", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -73,7 +73,7 @@ const Home = () => {
     }
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:4000/create-task", {
+      const res = await fetch("https://agents-task-be.onrender.com/create-task", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -102,7 +102,7 @@ const Home = () => {
   setLoading(true);
   try {
     // Get logged in user
-    const userRes = await fetch("http://localhost:4000/user", {
+    const userRes = await fetch("https://agents-task-be.onrender.com/user", {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -116,7 +116,7 @@ const Home = () => {
     setUser(userData);
 
     // Get agents
-    const agentRes = await fetch("http://localhost:4000/all-agents", {
+    const agentRes = await fetch("https://agents-task-be.onrender.com/all-agents", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -129,7 +129,7 @@ const Home = () => {
     setAgents(agentData.agents || []);
 
     // Get tasks
-    const taskRes = await fetch("http://localhost:4000/all-tasks", {
+    const taskRes = await fetch("https://agents-task-be.onrender.com/all-tasks", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -165,7 +165,7 @@ const Home = () => {
   const handleUpdate = async (id) => {
     const token = localStorage.getItem("token");
     try {
-      const res = await fetch(`http://localhost:4000/update-agent/${id}`, {
+      const res = await fetch(`https://agents-task-be.onrender.com/update-agent/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -196,7 +196,7 @@ const Home = () => {
   const handleDelete = async (id) => {
     const token = localStorage.getItem("token");
     try {
-      const res = await fetch(`http://localhost:4000/delete-agent/${id}`, {
+      const res = await fetch(`https://agents-task-be.onrender.com/delete-agent/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -228,7 +228,7 @@ const Home = () => {
     }
 
     try {
-      const res = await fetch(`http://localhost:4000/update-task/${id}`, {
+      const res = await fetch(`https://agents-task-be.onrender.com/update-task/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -255,7 +255,7 @@ const Home = () => {
     const token = localStorage.getItem("token");
 
     try {
-      const res = await fetch(`http://localhost:4000/delete-task/${id}`, {
+      const res = await fetch(`https://agents-task-be.onrender.com/delete-task/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
